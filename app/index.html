@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>My AngularJS App</title>
+  <link rel="stylesheet" href="css/app.css"/>
+  <style>
+      .hotspot{
+          clear:both;
+          float:none;
+          width:404px;
+          
+      }
+      .charty{
+          border:solid orangered 1px;
+          
+          overflow:hidden;
+          position:relative;
+          transition:border-radius ease 500ms;
+          float:left;
+          margin-right:10px;
+          background-color:white
+      }
+      .gegraphies{
+          padding-left:30px;
+      }
+      
+      #loading_msg{
+          position:absolute;
+
+          top:50%;
+          margin-top:-15px;
+          display:inline-block;
+          font-size:14px;
+          height:31px;
+      }
+      #loading_msg img{
+          display: inline-block;
+            vertical-align: middle;
+            width: 31px;
+            height: 31px;
+            font-size: 11px;
+      }
+      
+      .charty.collapsed{
+          border-radius:0 50% 50% 0;
+          
+      }
+      
+      .charty #floating_graph{
+          position:absolute;
+          top:50%;
+      }
+      
+      .placeholder{
+          transition:height 500ms ease;
+          height:0px;
+          background-color:blue;
+          color:white;
+          overflow:hidden;
+          
+              
+      }
+      .placeholder.expanded{
+          height:125px;
+          margin-bottom:3px;
+      }
+      
+      div#sun{
+          border-radius:50%;
+          position:absolute;
+          width:80px;
+          height:40px;
+          padding-top:40px;
+          color:white;
+          text-align:center;
+          left:50%;
+          margin-left:-40px;
+          top:-40px;
+          background-color:red;
+          transition:top 500ms ease;
+      }
+      #graph{
+          margin-top:20px;
+      }
+      div#sun.collapsed{
+          top:-15px;
+      }
+
+  </style>
+</head>
+<body>
+  <ul class="menu">
+    <li><a href="#/view1">Sun Chart</a></li>
+    <li><a href="#/view2">Bars Chart</a></li>
+    <li><a href="#/view3">Bubble Chart</a></li>
+    <li><a href="#/view4">Flower Chart</a></li>
+    <li><a href="#/view5">Rose Chart</a></li>
+    <li><a href="#/view6">Spider Web</a></li>
+    <li><a href="#/view7">Wind Rose</a></li>
+    <li><a href="#/view8">Spider Rose</a></li>
+    
+  </ul>
+
+  <div ng-view></div>
+  <div ng-controller="manipulation">
+      <table>
+          <tr ng-repeat="d in data">
+              <td>name:<input type="text" ng-model="d.key"></td>
+              <td>value:<input type="text" style="width:60px" ng-model="d.value"></td>
+              <td><button ng-click="Remove($index)">Remove</button></td>
+          </tr>
+          <tr style="background-color:gray">
+              <td>name:<input type="text" ng-model="newName"></td>
+              <td>value:<input type="text" style="width:60px" ng-model="newValue"></td>
+              <td><button ng-click="Add(newName,newValue)">Add</button></td>
+          </tr>
+
+      </table>
+  </div>
+    <script src="app/js/d3/d3.js"></script>
+  <script src="app/js/jquery/jquery.js"></script>
+  <script src="app/js/angular.js/angular.js"></script>
+  <script src="app/js/angular.js/angular-route.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+</body>
+</html>
