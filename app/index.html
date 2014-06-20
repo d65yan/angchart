@@ -99,12 +99,13 @@
     <li><a href="#/view6">Spider Web</a></li>
     <li><a href="#/view7">Wind Rose</a></li>
     <li><a href="#/view8">Spider Rose</a></li>
+    <li><a href="#/view9">Wind Rose</a></li>
     
   </ul>
 
   <div ng-view></div>
   <div ng-controller="manipulation">
-      <table>
+      <table ng-show="useTable">
           <tr ng-repeat="d in data">
               <td>name:<input type="text" ng-model="d.key"></td>
               <td>value:<input type="text" style="width:60px" ng-model="d.value"></td>

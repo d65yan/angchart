@@ -1,0 +1,9 @@
+<div  ng-init="$parent.useTable=false; levelOffset=30">
+    
+<button ng-click="details=!details" style="background-color:#fc7320; font-size:18px;">Toggle View</button>
+    <div wind-rose-v2 data="data"   text="9.9" style="width:380px; height:250px; position:relative;" levels="1" details="details" time="{{animTime}}" delay="{{animDelay}}" offset="{{levelOffset}}"></div>
+    Animation Time:<input type="number" ng-model="animTime">ms<br>
+    Start Delay:<input type="number" ng-model="animDelay">ms<br>
+    Level Offset:<input type="number" ng-model="levelOffset">px
+    
+</div>
